@@ -17,5 +17,5 @@ try {
     console.error('Firebase Admin Initialization Error:', error);
 }
 
-export const bucket = admin.storage().bucket();
+export const bucket = admin.apps.length ? admin.storage().bucket() : null;
 export default admin;

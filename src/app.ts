@@ -1,10 +1,10 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import routes from './routes';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 import connectDB from './config/db';
 import './config/firebase'; // Initialize Firebase
