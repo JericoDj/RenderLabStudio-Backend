@@ -1,0 +1,139 @@
+{
+    "info": {
+        "name": "📋 Plans",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Plans API — Create, Read, Update, Delete subscription plans"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000"
+        }
+    ],
+    "item": [
+        {
+            "name": "Create Plan",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{baseUrl}}/api/plans",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "plans"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"Pro Plan\",\n  \"price\": 29.99,\n  \"durationInDays\": 30,\n  \"limits\": {\n    \"images\": 100,\n    \"videos\": 20,\n    \"messages\": 500\n  },\n  \"features\": [\"HD Export\", \"Priority Support\", \"Custom Watermarks\"]\n}"
+                }
+            }
+        },
+        {
+            "name": "Get All Plans",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/plans",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "plans"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Plan by ID",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/plans/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "plans",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "description": "Replace :id with a real plan _id."
+            }
+        },
+        {
+            "name": "Update Plan",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "{{baseUrl}}/api/plans/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "plans",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"price\": 19.99,\n  \"features\": [\"HD Export\", \"Priority Support\"]\n}"
+                },
+                "description": "Replace :id with a real plan _id."
+            }
+        },
+        {
+            "name": "Delete Plan",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "{{baseUrl}}/api/plans/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "plans",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "description": "Replace :id with a real plan _id."
+            }
+        }
+    ]
+}

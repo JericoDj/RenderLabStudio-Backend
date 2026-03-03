@@ -1,0 +1,140 @@
+{
+    "info": {
+        "name": "💬 Messages",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Messages API — Create, Read, Update, Delete chat messages"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000"
+        }
+    ],
+    "item": [
+        {
+            "name": "Create Message",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{baseUrl}}/api/messages",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "messages"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"session\": \"SESSION_OBJECT_ID\",\n  \"user\": \"USER_OBJECT_ID\",\n  \"role\": \"user\",\n  \"content\": \"Generate a sunset landscape in 4K\",\n  \"response\": \"\"\n}"
+                },
+                "description": "Replace SESSION_OBJECT_ID and USER_OBJECT_ID with real _id values. role accepts: \"user\", \"assistant\", or \"system\". response is optional."
+            }
+        },
+        {
+            "name": "Get All Messages",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/messages",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "messages"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Message by ID",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/messages/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "messages",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "description": "Replace :id with a real message _id."
+            }
+        },
+        {
+            "name": "Update Message",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "{{baseUrl}}/api/messages/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "messages",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"content\": \"Updated message content\"\n}"
+                },
+                "description": "Replace :id with a real message _id."
+            }
+        },
+        {
+            "name": "Delete Message",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "{{baseUrl}}/api/messages/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "messages",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "description": "Replace :id with a real message _id."
+            }
+        }
+    ]
+}

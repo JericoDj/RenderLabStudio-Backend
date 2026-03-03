@@ -1,0 +1,1518 @@
+{
+    "info": {
+        "name": "RenderLab Studio API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Complete API collection for RenderLab Studio Backend"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000"
+        }
+    ],
+    "item": [
+        {
+            "name": "👤 Users & Auth",
+            "item": [
+                {
+                    "name": "Register User",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users/register",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "register"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"testuser@example.com\",\n  \"password\": \"MySecurePass123\",\n  \"name\": \"Test User\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users/login",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "login"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"testuser@example.com\",\n  \"password\": \"MySecurePass123\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Google Login",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users/google-login",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "google-login"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"googleuser@gmail.com\",\n  \"googleId\": \"google-uid-abc123\",\n  \"name\": \"Google User\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Forgot Password (Send OTP)",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users/forgot-password",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "forgot-password"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"testuser@example.com\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Send OTP",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users/send-otp",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "send-otp"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"testuser@example.com\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Reset Password",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users/reset-password",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "reset-password"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"testuser@example.com\",\n  \"otp\": \"123456\",\n  \"newPassword\": \"NewSecurePass456\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Current User",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users/me",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "me"
+                            ]
+                        },
+                        "description": "Requires auth middleware (not yet implemented). Will return 500 until middleware sets req.user."
+                    }
+                },
+                {
+                    "name": "Create User",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"newuser@example.com\",\n  \"password\": \"Password123\",\n  \"name\": \"New User\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Update User",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Updated Name\"\n}"
+                        },
+                        "description": "Replace :id with a real user _id."
+                    }
+                },
+                {
+                    "name": "Delete User",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real user _id."
+                    }
+                }
+            ]
+        },
+        {
+            "name": "📋 Plans",
+            "item": [
+                {
+                    "name": "Create Plan",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/plans",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "plans"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Pro Plan\",\n  \"price\": 29.99,\n  \"durationInDays\": 30,\n  \"limits\": {\n    \"images\": 100,\n    \"videos\": 20,\n    \"messages\": 500\n  },\n  \"features\": [\"HD Export\", \"Priority Support\", \"Custom Watermarks\"]\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Plans",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/plans",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "plans"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Plan by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/plans/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "plans",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real plan _id."
+                    }
+                },
+                {
+                    "name": "Update Plan",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/plans/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "plans",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"price\": 19.99,\n  \"features\": [\"HD Export\", \"Priority Support\"]\n}"
+                        },
+                        "description": "Replace :id with a real plan _id."
+                    }
+                },
+                {
+                    "name": "Delete Plan",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/plans/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "plans",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real plan _id."
+                    }
+                }
+            ]
+        },
+        {
+            "name": "💳 Payments",
+            "item": [
+                {
+                    "name": "Create Payment",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/payments",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "payments"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"user\": \"USER_OBJECT_ID\",\n  \"plan\": \"PLAN_OBJECT_ID\",\n  \"amount\": 29.99,\n  \"currency\": \"USD\",\n  \"status\": \"pending\",\n  \"providerId\": \"stripe_pi_abc123\",\n  \"metadata\": {\n    \"source\": \"web\",\n    \"coupon\": \"SAVE10\"\n  }\n}"
+                        },
+                        "description": "Replace USER_OBJECT_ID and PLAN_OBJECT_ID with real MongoDB _id values."
+                    }
+                },
+                {
+                    "name": "Get All Payments",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/payments",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "payments"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Payment by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/payments/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "payments",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real payment _id."
+                    }
+                },
+                {
+                    "name": "Update Payment",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/payments/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "payments",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"status\": \"completed\"\n}"
+                        },
+                        "description": "Replace :id with a real payment _id."
+                    }
+                },
+                {
+                    "name": "Delete Payment",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/payments/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "payments",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real payment _id."
+                    }
+                }
+            ]
+        },
+        {
+            "name": "🗂️ Sessions & Preferences",
+            "item": [
+                {
+                    "name": "Create Session",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/sessions",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "sessions"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"user\": \"USER_OBJECT_ID\",\n  \"title\": \"Design Session #1\",\n  \"preferences\": {\n    \"video\": { \"resolution\": \"1080p\", \"fps\": 30 },\n    \"image\": { \"style\": \"photorealistic\", \"ratio\": \"16:9\" },\n    \"chat\": { \"model\": \"gemini\", \"temperature\": 0.7 }\n  }\n}"
+                        },
+                        "description": "Replace USER_OBJECT_ID with a real user _id."
+                    }
+                },
+                {
+                    "name": "Get All Sessions",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/sessions",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "sessions"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Session by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/sessions/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "sessions",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real session _id."
+                    }
+                },
+                {
+                    "name": "Update Session",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/sessions/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "sessions",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Renamed Session\"\n}"
+                        },
+                        "description": "Replace :id with a real session _id."
+                    }
+                },
+                {
+                    "name": "Delete Session",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/sessions/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "sessions",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real session _id."
+                    }
+                },
+                {
+                    "name": "Get Session Preferences",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/sessions/:id/preferences",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "sessions",
+                                ":id",
+                                "preferences"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real session _id."
+                    }
+                },
+                {
+                    "name": "Update Session Preferences",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/sessions/:id/preferences",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "sessions",
+                                ":id",
+                                "preferences"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"image\": { \"style\": \"anime\", \"ratio\": \"1:1\" }\n}"
+                        },
+                        "description": "Partial update supported. Replace :id with a real session _id."
+                    }
+                },
+                {
+                    "name": "Delete (Reset) Session Preferences",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/sessions/:id/preferences",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "sessions",
+                                ":id",
+                                "preferences"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Resets preferences. Replace :id with a real session _id."
+                    }
+                }
+            ]
+        },
+        {
+            "name": "💬 Messages",
+            "item": [
+                {
+                    "name": "Create Message",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/messages",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "messages"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"session\": \"SESSION_OBJECT_ID\",\n  \"user\": \"USER_OBJECT_ID\",\n  \"role\": \"user\",\n  \"content\": \"Generate a sunset landscape in 4K\",\n  \"response\": \"\"\n}"
+                        },
+                        "description": "Replace SESSION_OBJECT_ID and USER_OBJECT_ID with real _id values. role accepts: \"user\", \"assistant\", or \"system\". response is optional."
+                    }
+                },
+                {
+                    "name": "Get All Messages",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/messages",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "messages"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Message by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/messages/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "messages",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real message _id."
+                    }
+                },
+                {
+                    "name": "Update Message",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/messages/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "messages",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"content\": \"Updated message content\"\n}"
+                        },
+                        "description": "Replace :id with a real message _id."
+                    }
+                },
+                {
+                    "name": "Delete Message",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/messages/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "messages",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real message _id."
+                    }
+                }
+            ]
+        },
+        {
+            "name": "📁 Albums",
+            "item": [
+                {
+                    "name": "Create Album",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/albums",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "albums"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"user\": \"USER_OBJECT_ID\",\n  \"title\": \"Landscape Collection\",\n  \"description\": \"AI-generated landscape images\",\n  \"coverImage\": \"https://example.com/cover.jpg\"\n}"
+                        },
+                        "description": "Replace USER_OBJECT_ID with a real user _id."
+                    }
+                },
+                {
+                    "name": "Get All Albums",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/albums",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "albums"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Albums by User",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/albums/user/:userId",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "albums",
+                                "user",
+                                ":userId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "userId",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :userId with a real user _id."
+                    }
+                },
+                {
+                    "name": "Get Album by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/albums/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "albums",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real album _id."
+                    }
+                },
+                {
+                    "name": "Update Album",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/albums/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "albums",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Updated Album Title\",\n  \"description\": \"Updated description\"\n}"
+                        },
+                        "description": "Replace :id with a real album _id."
+                    }
+                },
+                {
+                    "name": "Delete Album",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/albums/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "albums",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :id with a real album _id."
+                    }
+                }
+            ]
+        },
+        {
+            "name": "🖼️ Media",
+            "item": [
+                {
+                    "name": "Images",
+                    "item": [
+                        {
+                            "name": "Create Image",
+                            "request": {
+                                "method": "POST",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/images",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "images"
+                                    ]
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"user\": \"USER_OBJECT_ID\",\n  \"album\": \"ALBUM_OBJECT_ID\",\n  \"url\": \"https://storage.example.com/images/sunset.png\",\n  \"storageId\": \"images/sunset.png\",\n  \"prompt\": \"A beautiful sunset over the ocean in 4K\",\n  \"metadata\": {\n    \"width\": 3840,\n    \"height\": 2160,\n    \"format\": \"png\"\n  }\n}"
+                                },
+                                "description": "Replace USER_OBJECT_ID and ALBUM_OBJECT_ID with real _id values. album, storageId, prompt, metadata are optional."
+                            }
+                        },
+                        {
+                            "name": "Get All Images",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/images",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "images"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Get Images by User",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/images/user/:userId",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "images",
+                                        "user",
+                                        ":userId"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "userId",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                "description": "Replace :userId with a real user _id."
+                            }
+                        },
+                        {
+                            "name": "Get Images by Album",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/images/album/:albumId",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "images",
+                                        "album",
+                                        ":albumId"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "albumId",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                "description": "Replace :albumId with a real album _id."
+                            }
+                        },
+                        {
+                            "name": "Get Image by ID",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/images/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "images",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Update Image",
+                            "request": {
+                                "method": "PUT",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/images/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "images",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"prompt\": \"Updated prompt description\"\n}"
+                                }
+                            }
+                        },
+                        {
+                            "name": "Delete Image",
+                            "request": {
+                                "method": "DELETE",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/images/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "images",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Videos",
+                    "item": [
+                        {
+                            "name": "Create Video",
+                            "request": {
+                                "method": "POST",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/videos",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "videos"
+                                    ]
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"user\": \"USER_OBJECT_ID\",\n  \"album\": \"ALBUM_OBJECT_ID\",\n  \"url\": \"https://storage.example.com/videos/intro.mp4\",\n  \"storageId\": \"videos/intro.mp4\",\n  \"prompt\": \"A cinematic intro animation\",\n  \"metadata\": {\n    \"duration\": 15,\n    \"resolution\": \"1080p\",\n    \"format\": \"mp4\"\n  }\n}"
+                                }
+                            }
+                        },
+                        {
+                            "name": "Get All Videos",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/videos",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "videos"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Get Videos by User",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/videos/user/:userId",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "videos",
+                                        "user",
+                                        ":userId"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "userId",
+                                            "value": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Get Videos by Album",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/videos/album/:albumId",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "videos",
+                                        "album",
+                                        ":albumId"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "albumId",
+                                            "value": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Get Video by ID",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/videos/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "videos",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Update Video",
+                            "request": {
+                                "method": "PUT",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/videos/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "videos",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"prompt\": \"Updated video prompt\"\n}"
+                                }
+                            }
+                        },
+                        {
+                            "name": "Delete Video",
+                            "request": {
+                                "method": "DELETE",
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/media/videos/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "media",
+                                        "videos",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "🤖 AI",
+            "item": [
+                {
+                    "name": "Improve Prompt",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ai/improve-prompt",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "ai",
+                                "improve-prompt"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"prompt\": \"a cat sitting on a chair\"\n}"
+                        },
+                        "description": "Enhances a user's raw prompt into a more detailed, optimized version."
+                    }
+                },
+                {
+                    "name": "Chat",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ai/chat",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "ai",
+                                "chat"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"sessionId\": \"SESSION_OBJECT_ID\",\n  \"prompt\": \"I want all images in anime style from now on\",\n  \"modelProp\": \"gemini\"\n}"
+                        },
+                        "description": "Sends a message within a session. Replace SESSION_OBJECT_ID with a real session _id. modelProp accepts \"gemini\" or \"openai\" (defaults to OpenAI if omitted)."
+                    }
+                },
+                {
+                    "name": "Signal Check",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ai/signal",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "ai",
+                                "signal"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"sessionId\": \"SESSION_OBJECT_ID\",\n  \"prompt\": \"Switch to 4K resolution for videos\"\n}"
+                        },
+                        "description": "Checks if a prompt would trigger a preference change — without actually sending a chat message. Replace SESSION_OBJECT_ID with a real session _id."
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,99 @@
+{
+    "info": {
+        "name": "🤖 AI",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "AI API — Improve Prompt, Chat, Signal Check"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000"
+        }
+    ],
+    "item": [
+        {
+            "name": "Improve Prompt",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{baseUrl}}/api/ai/improve-prompt",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "ai",
+                        "improve-prompt"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"prompt\": \"a cat sitting on a chair\"\n}"
+                },
+                "description": "Enhances a user's raw prompt into a more detailed, optimized version."
+            }
+        },
+        {
+            "name": "Chat",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{baseUrl}}/api/ai/chat",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "ai",
+                        "chat"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"sessionId\": \"SESSION_OBJECT_ID\",\n  \"prompt\": \"I want all images in anime style from now on\",\n  \"modelProp\": \"gemini\"\n}"
+                },
+                "description": "Sends a message within a session. Replace SESSION_OBJECT_ID with a real session _id. modelProp accepts \"gemini\" or \"openai\" (defaults to OpenAI if omitted)."
+            }
+        },
+        {
+            "name": "Signal Check",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{baseUrl}}/api/ai/signal",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "ai",
+                        "signal"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"sessionId\": \"SESSION_OBJECT_ID\",\n  \"prompt\": \"Switch to 4K resolution for videos\"\n}"
+                },
+                "description": "Checks if a prompt would trigger a preference change — without actually sending a chat message. Replace SESSION_OBJECT_ID with a real session _id."
+            }
+        }
+    ]
+}

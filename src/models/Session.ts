@@ -16,9 +16,9 @@ const SessionSchema: Schema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     title: { type: String, default: 'New Session' },
     preferences: {
-        video: { type: Map, of: Schema.Types.Mixed, default: {} },
-        image: { type: Map, of: Schema.Types.Mixed, default: {} },
-        chat: { type: Map, of: Schema.Types.Mixed, default: {} },
+        video: { type: Schema.Types.Mixed, default: {} },
+        image: { type: Schema.Types.Mixed, default: {} },
+        chat: { type: Schema.Types.Mixed, default: {} },
     },
 }, { timestamps: true });
 

@@ -13,7 +13,7 @@ export const generateWithOpenAI = async (prompt: string, model: string = 'gpt-3.
 };
 
 export const generateWithGemini = async (prompt: string) => {
-  const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-3-flash' });
   const result = await model.generateContent(prompt);
   const response = await result.response;
   return response.text();

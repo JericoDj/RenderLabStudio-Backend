@@ -1,0 +1,225 @@
+{
+    "info": {
+        "name": "🗂️ Sessions & Preferences",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Sessions & Preferences API — CRUD sessions and manage session preferences"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000"
+        }
+    ],
+    "item": [
+        {
+            "name": "Create Session",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{baseUrl}}/api/sessions",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "sessions"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"user\": \"USER_OBJECT_ID\",\n  \"title\": \"Design Session #1\",\n  \"preferences\": {\n    \"video\": { \"resolution\": \"1080p\", \"fps\": 30 },\n    \"image\": { \"style\": \"photorealistic\", \"ratio\": \"16:9\" },\n    \"chat\": { \"model\": \"gemini\", \"temperature\": 0.7 }\n  }\n}"
+                },
+                "description": "Replace USER_OBJECT_ID with a real user _id."
+            }
+        },
+        {
+            "name": "Get All Sessions",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/sessions",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "sessions"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Session by ID",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/sessions/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "sessions",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "description": "Replace :id with a real session _id."
+            }
+        },
+        {
+            "name": "Update Session",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "{{baseUrl}}/api/sessions/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "sessions",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"title\": \"Renamed Session\"\n}"
+                },
+                "description": "Replace :id with a real session _id."
+            }
+        },
+        {
+            "name": "Delete Session",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "{{baseUrl}}/api/sessions/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "sessions",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "description": "Replace :id with a real session _id."
+            }
+        },
+        {
+            "name": "Get Session Preferences",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/sessions/:id/preferences",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "sessions",
+                        ":id",
+                        "preferences"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "description": "Replace :id with a real session _id."
+            }
+        },
+        {
+            "name": "Update Session Preferences",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "{{baseUrl}}/api/sessions/:id/preferences",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "sessions",
+                        ":id",
+                        "preferences"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"image\": { \"style\": \"anime\", \"ratio\": \"1:1\" }\n}"
+                },
+                "description": "Partial update supported. Replace :id with a real session _id."
+            }
+        },
+        {
+            "name": "Delete (Reset) Session Preferences",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "{{baseUrl}}/api/sessions/:id/preferences",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "sessions",
+                        ":id",
+                        "preferences"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "description": "Resets preferences. Replace :id with a real session _id."
+            }
+        }
+    ]
+}

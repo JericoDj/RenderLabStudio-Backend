@@ -1,0 +1,165 @@
+{
+    "info": {
+        "name": "📁 Albums",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Albums API — Create, Read, Update, Delete media albums"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000"
+        }
+    ],
+    "item": [
+        {
+            "name": "Create Album",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{baseUrl}}/api/albums",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "albums"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"user\": \"USER_OBJECT_ID\",\n  \"title\": \"Landscape Collection\",\n  \"description\": \"AI-generated landscape images\",\n  \"coverImage\": \"https://example.com/cover.jpg\"\n}"
+                },
+                "description": "Replace USER_OBJECT_ID with a real user _id."
+            }
+        },
+        {
+            "name": "Get All Albums",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/albums",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "albums"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Albums by User",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/albums/user/:userId",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "albums",
+                        "user",
+                        ":userId"
+                    ],
+                    "variable": [
+                        {
+                            "key": "userId",
+                            "value": ""
+                        }
+                    ]
+                },
+                "description": "Replace :userId with a real user _id."
+            }
+        },
+        {
+            "name": "Get Album by ID",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/albums/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "albums",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "description": "Replace :id with a real album _id."
+            }
+        },
+        {
+            "name": "Update Album",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "{{baseUrl}}/api/albums/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "albums",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"title\": \"Updated Album Title\",\n  \"description\": \"Updated description\"\n}"
+                },
+                "description": "Replace :id with a real album _id."
+            }
+        },
+        {
+            "name": "Delete Album",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "{{baseUrl}}/api/albums/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "albums",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": ""
+                        }
+                    ]
+                },
+                "description": "Replace :id with a real album _id."
+            }
+        }
+    ]
+}

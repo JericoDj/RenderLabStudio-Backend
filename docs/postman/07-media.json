@@ -1,0 +1,380 @@
+{
+    "info": {
+        "name": "🖼️ Media (Images & Videos)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Media API — CRUD for images and videos"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000"
+        }
+    ],
+    "item": [
+        {
+            "name": "Images",
+            "item": [
+                {
+                    "name": "Create Image",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/images",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "images"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"user\": \"USER_OBJECT_ID\",\n  \"album\": \"ALBUM_OBJECT_ID\",\n  \"url\": \"https://storage.example.com/images/sunset.png\",\n  \"storageId\": \"images/sunset.png\",\n  \"prompt\": \"A beautiful sunset over the ocean in 4K\",\n  \"metadata\": {\n    \"width\": 3840,\n    \"height\": 2160,\n    \"format\": \"png\"\n  }\n}"
+                        },
+                        "description": "Replace USER_OBJECT_ID and ALBUM_OBJECT_ID with real _id values. album, storageId, prompt, metadata are optional."
+                    }
+                },
+                {
+                    "name": "Get All Images",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/images",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "images"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Images by User",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/images/user/:userId",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "images",
+                                "user",
+                                ":userId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "userId",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :userId with a real user _id."
+                    }
+                },
+                {
+                    "name": "Get Images by Album",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/images/album/:albumId",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "images",
+                                "album",
+                                ":albumId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "albumId",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace :albumId with a real album _id."
+                    }
+                },
+                {
+                    "name": "Get Image by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/images/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "images",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Image",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/images/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "images",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"prompt\": \"Updated prompt description\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Image",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/images/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "images",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Videos",
+            "item": [
+                {
+                    "name": "Create Video",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/videos",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "videos"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"user\": \"USER_OBJECT_ID\",\n  \"album\": \"ALBUM_OBJECT_ID\",\n  \"url\": \"https://storage.example.com/videos/intro.mp4\",\n  \"storageId\": \"videos/intro.mp4\",\n  \"prompt\": \"A cinematic intro animation\",\n  \"metadata\": {\n    \"duration\": 15,\n    \"resolution\": \"1080p\",\n    \"format\": \"mp4\"\n  }\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Videos",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/videos",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "videos"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Videos by User",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/videos/user/:userId",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "videos",
+                                "user",
+                                ":userId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "userId",
+                                    "value": ""
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Videos by Album",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/videos/album/:albumId",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "videos",
+                                "album",
+                                ":albumId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "albumId",
+                                    "value": ""
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Video by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/videos/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "videos",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Video",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/videos/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "videos",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"prompt\": \"Updated video prompt\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Video",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/media/videos/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "media",
+                                "videos",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": ""
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
