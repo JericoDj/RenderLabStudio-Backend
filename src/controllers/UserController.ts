@@ -3,6 +3,10 @@ import User from '../models/User';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
+import { OAuth2Client } from 'google-auth-library';
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
 
 // --- Auth Utilities ---
 const generateToken = (id: string) => {
@@ -110,7 +114,19 @@ export const loginUser = async (req: Request, res: Response) => {
 
 export const googleLogin = async (req: Request, res: Response) => {
     try {
-        const { email, googleId, name } = req.body;
+        const { idToken } = req.body;
+        if (!idToken) return res.status(400).json({ message: 'No Google ID token provided' });
+
+        const ticket = await client.verifyIdToken({
+            idToken,
+            audience: process.env.GOOGLE_CLIENT_ID,
+        });
+
+        const payload = ticket.getPayload();
+        if (!payload || !payload.email) return res.status(400).json({ message: 'Invalid Google token payload' });
+
+        const { email, sub: googleId, name } = payload;
+
         let user = await User.findOne({ email });
 
         if (!user) {
