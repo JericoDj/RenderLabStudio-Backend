@@ -7,6 +7,7 @@ import messageRoutes from './messageRoutes';
 import albumRoutes from './albumRoutes';
 import mediaRoutes from './mediaRoutes';
 import aiRoutes from './aiRoutes';
+import polarRoutes from './polarRoutes';
 
 const router = Router();
 
@@ -18,5 +19,6 @@ router.use('/messages', messageRoutes);
 router.use('/albums', albumRoutes);
 router.use('/media', mediaRoutes);
 router.use('/ai', aiRoutes);
+router.use('/polar', polarRoutes);
 
 export default router;

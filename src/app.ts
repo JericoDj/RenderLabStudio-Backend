@@ -13,6 +13,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
+
+// Webhook requires raw body for signature verification
+import { handleWebhook } from './controllers/PolarController';
+app.post('/api/polar/webhook', express.raw({ type: 'application/json' }), handleWebhook);
+
 app.use(express.json());
 
 // Routes
@@ -25,6 +30,6 @@ if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
-}
+} 
 
 export default app;

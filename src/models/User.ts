@@ -7,6 +7,8 @@ export interface IUser extends Document {
   name?: string;
   otp?: string;
   otpExpires?: Date;
+  polarCustomerId?: string;
+  polarSubscriptionId?: string;
   plan?: mongoose.Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
@@ -19,6 +21,8 @@ const UserSchema: Schema = new Schema({
   name: { type: String },
   otp: { type: String },
   otpExpires: { type: Date },
+  polarCustomerId: { type: String },
+  polarSubscriptionId: { type: String },
   plan: { type: Schema.Types.ObjectId, ref: 'Plan' },
 }, { timestamps: true });
 
